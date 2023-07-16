@@ -1,0 +1,28 @@
+@import 'col';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: $text;
+}
+body {
+  background-color: $background;
+}
+
+a {
+    text-decoration: none;
+}
+
+body.light-mode {
+    background-color: $l-background;
+    * {
+        color: $l-text;
+    }
+
+    .mainLR a {
+        color: $l-background;
+        background-color: $l-primary;
+    }
+}
+
+

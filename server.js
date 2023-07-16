@@ -9,6 +9,7 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const appRouter = require('./routes/app');
+const profileRouter = require('./routes/profile');
 
 const db = require('./utils/db')
 
@@ -53,4 +54,6 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/app', appRouter);
+app.use('/profile', profileRouter);
+
 

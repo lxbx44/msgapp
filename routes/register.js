@@ -20,7 +20,11 @@ router.get('/', gotoapp, (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    const { username, name, email, password } = req.body;
+    const { username, name, email, password, confirmPassword } = req.body;
+
+    if (password !== confirmPassword) {
+        return res.render('register', { error: 'Passwords do not match' });
+    }
 
     bcrypt.genSalt(10, (error, salt) => {
         if (error) {
