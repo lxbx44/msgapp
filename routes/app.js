@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+
+
 const authenticateUser = (req, res, next) => {
     const username = req.cookies.username;
     const name = req.cookies.name;
@@ -9,18 +13,11 @@ const authenticateUser = (req, res, next) => {
     next();
 };
 
-const redAppIfLogin = (req, res, next) => {
+
+router.get('/', authenticateUser, (req, res) => {
     const username = req.cookies.username;
     const name = req.cookies.name;
+    res.render('app', { name, username });
+});
 
-    if (username || name) {
-        return res.redirect('/app')
-    }
-    next();
-};
-
-
-module.exports = {
-    authenticateUser,
-    redAppIfLogin
-};
+module.exports = router;
