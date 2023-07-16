@@ -15,14 +15,22 @@
     <title>Ashhdjkd</title>
 </head>
 <body>
-    <noscript>
-        Enable JavaScript to use this website
-    </noscript>
 
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
-    <a href="/login">LogIn</a>
-    <a href="/register">Register</a>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-    <script src="js/index.js"></script>
+        <button type="submit">Login</button>
+    </form>
+
+    <% if (error) { %>
+    <div class="error-message">
+        <p><%= error %></p>
+    </div>
+    <% } %>
+
 </body>
 </html>
