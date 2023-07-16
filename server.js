@@ -7,7 +7,10 @@ const bcrypt = require('bcrypt');
 
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
 const appRouter = require('./routes/app');
+
+const db = require('./utils/db')
 
 var app = express();
 
@@ -16,7 +19,6 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT;
 
-const db = require('./utils/db')
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
@@ -49,4 +51,6 @@ app.get('/', redAppIfLogin, (req, res) => {
 
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 app.use('/app', appRouter);
+

@@ -1,7 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
-router.get('/', (req, res) => {
+const db = require('./../utils/db')
+
+const gotoapp = (req, res, next) => {
+    const username = req.cookies.username;
+    const name = req.cookies.name;
+
+    if (username || name) {
+        return res.redirect('/app')
+    }
+    next();
+};
+
+
+router.get('/', gotoapp, (req, res) => {
   res.render('register', { error: null });
 });
 
