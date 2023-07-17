@@ -6,7 +6,9 @@
     color: $text;
 }
 body {
-  background-color: $background;
+    background-color: $background;
+    background-image: url('../img/dc.jpg');
+    background-size: cover;
 }
 
 a {
@@ -15,13 +17,46 @@ a {
 
 body.light-mode {
     background-color: $l-background;
+    background-image: url('../img/lc.jpg');
+    background-size: cover;
+    background-position-y: top;
     * {
         color: $l-text;
     }
 
     .mainLR a {
         color: $l-background;
-        background-color: $l-primary;
+        background-color: $l-accent;
+    }
+
+    .register-f {
+        background-color: $l-background-3;
+        opacity: 0.9;
+        form {
+            input {
+                background-color: $l-background;
+                color: $l-text;
+                border: solid 2px $l-text;
+            }
+            input:focus {
+                border: solid 2px $l-accent;
+            }
+
+            button {
+                color: $l-background;
+                background-color: $l-accent;
+            }
+        }
+    }
+    .home_btn {
+        background-color: $l-background;
+        opacity: 0.8;
+        i {
+            color: $l-text;
+        }
+        i:hover {
+            color: $l-accent;
+        }
     }
 }
 

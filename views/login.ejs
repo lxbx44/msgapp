@@ -9,22 +9,40 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
 
     <link rel="shortcut icon" href="img/logo.gif">
     <title>Ashhdjkd</title>
 </head>
 <body>
 
-    <form action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <a href="/" class="home_btn"><i class="fa-solid fa-house"></i></a> 
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <div class="toggle-container" style="display: none;">
+        <label class="toggle">
+            <input type="checkbox" id="mode-toggle">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
 
-        <button type="submit">Login</button>
-    </form>
+
+    <div class="register-f">
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <br>
+            <input type="text" id="username" name="username" required>
+
+            <br>
+
+            <label for="password">Password:</label>
+            <br>
+            <input type="password" id="password" name="password" required>
+
+            <br>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
     <% if (error) { %>
     <div class="error-message">

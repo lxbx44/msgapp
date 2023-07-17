@@ -48,6 +48,9 @@ router.post('/', (req, res) => {
           return res.render('login', { error: 'Invalid credentials' });
         }
 
+          res.cookie('username', user.username);
+          res.cookie('name', user.name);
+          res.cookie('email', user.email);
           return res.redirect('/app');
       });
     }
