@@ -1,0 +1,315 @@
+@import 'styles';
+@import 'keyframes';
+
+body {
+    background-image: url('/img/bg-d.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: auto center;
+
+    .login-f {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        background-color: $background;
+
+        padding: 2.5rem;
+        border-radius: 20px;
+
+        height: 65vh;
+        width: 25vw;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 65% 5% 5%;
+
+        .l-header {
+            h1 {
+                color: $text;
+            }
+            p {
+                color: gray;
+            }
+        }
+
+        .login form {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div label {
+                font-size: small;
+            }            
+            div div {
+                margin-top: 0.2rem;
+                padding: 0.8rem 0.3rem; 
+                
+                border: solid $text 2px;
+                border-radius: 5px;
+
+                transition: all 0.2s ease-in-out;
+                i {
+                    margin-left: 0.7rem;
+                    color: $text;
+                }
+                input {
+                    background-color: $background;
+                    font-size: medium;
+                    padding: 0 0.2rem;
+                    width: calc(25vw - 5rem);
+                    border: none;
+                    outline: none;
+                }
+            }
+            div div:focus-within {
+                border: solid $primary 2px;
+            }
+            div div:hover {
+                border: solid $primary 2px;
+            }
+
+            button {
+                padding: 0.8rem 0;
+                background-color: $primary;
+                border-radius: 5px;
+                border: none;
+                font-size: medium;
+            }
+        }
+        .l-register {
+            justify-self: center;
+            font-size: small;
+            display: grid;
+
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr;
+
+            align-items: center;
+
+            p {
+                color: gray;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+                margin-left: 0.2rem;
+                padding: 0.5rem;
+                p {
+                    padding: 0.5rem;
+                    font-size: small;
+                    color: $accent;
+                    --c: #ee6ef7;
+                    --h: 1.2em;
+                    line-height: var(--h);
+                    background: 
+                    linear-gradient(var(--c) 0 0) no-repeat 
+                    calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+                    color: #0000;
+                    overflow: hidden;
+                    text-shadow: 
+                    0 calc(-1*var(--_t,0em)) var(--c), 
+                    0 calc(var(--h) - var(--_t,0em)) #fff;
+                    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+
+                    margin:0;
+                    cursor: pointer;
+                    padding: 0 .1em;
+                }
+                p:hover {
+                    --_t: var(--h);
+                    --_p: 100%;
+                    --_s: .3s
+                }
+            }
+        }
+    }
+    .register-f {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        background-color: $background;
+
+        padding: 1rem 2.5rem;
+        border-radius: 20px;
+
+        height: 80vh;
+        width: 25vw;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10% 83% 2%;
+
+        .r-header {
+            h1 {
+                color: $text;
+            }
+            p {
+                color: gray;
+            }
+        }
+
+        .register form {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div label {
+                font-size: small;
+            }            
+            div div {
+                padding: 0.3rem; 
+                
+                border: solid $text 2px;
+                border-radius: 5px;
+
+                transition: all 0.2s ease-in-out;
+                i {
+                    margin-left: 0.7rem;
+                    color: $text;
+                }
+                input {
+                    background-color: $background;
+                    font-size: medium;
+                    padding: 0 0.2rem;
+                    width: calc(25vw - 5rem);
+                    border: none;
+                    outline: none;
+                }
+            }
+            div div:focus-within {
+                border: solid $primary 2px;
+            }
+            div div:hover {
+                border: solid $primary 2px;
+            }
+
+            button {
+                padding: 0.5rem 0;
+                background-color: $primary;
+                border-radius: 5px;
+                border: none;
+                font-size: medium;
+            }
+        }
+        .r-login {
+            justify-self: center;
+            font-size: small;
+            display: grid;
+
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr;
+
+            align-items: center;
+
+            p {
+                color: gray;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+                margin-left: 0.2rem;
+                padding: 0.5rem;
+                p {
+                    padding: 0.5rem;
+                    font-size: small;
+                    color: $accent;
+                    --c: #ee6ef7;
+                    --h: 1.2em;
+                    line-height: var(--h);
+                    background: 
+                    linear-gradient(var(--c) 0 0) no-repeat 
+                    calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+                    color: #0000;
+                    overflow: hidden;
+                    text-shadow: 
+                    0 calc(-1*var(--_t,0em)) var(--c), 
+                    0 calc(var(--h) - var(--_t,0em)) #fff;
+                    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+
+                    margin:0;
+                    cursor: pointer;
+                    padding: 0 .1em;
+                }
+                p:hover {
+                    --_t: var(--h);
+                    --_p: 100%;
+                    --_s: .3s
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.light-mode {
+    background-image: url('/img/bg-l.svg');
+    
+    .login-f {
+        background-color: $l-background;
+
+        .l-header h2 {
+            color: $l-text;
+        }
+        .login form {
+            div div {
+                border: solid $l-text 2px;
+                i {
+                    color: $l-text;
+                }
+                input {
+                    background-color: $l-background;
+                    color: $l-text;
+                }
+            }
+            div div:focus-within {
+                border: solid $l-primary 2px;
+            }
+            div div:hover {
+                border: solid $l-primary 2px;
+            }
+            button {
+                background-color: $l-primary;
+            }
+        }
+        .l-register {
+            a {
+                p {
+                    padding: 0.5rem;
+                    font-size: small;
+                    color: $l-accent;
+                    --c: #ee6ef7;
+                    --h: 1.2em;
+                    line-height: var(--h);
+                    background: 
+                    linear-gradient(var(--c) 0 0) no-repeat 
+                    calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+                    color: #0000;
+                    overflow: hidden;
+                    text-shadow: 
+                    0 calc(-1*var(--_t,0em)) var(--c), 
+                    0 calc(var(--h) - var(--_t,0em)) #fff;
+                    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+
+                    margin:0;
+                    cursor: pointer;
+                    padding: 0 .1em;
+                }
+                p:hover {
+                    --_t: var(--h);
+                    --_p: 100%;
+                    --_s: .3s
+                }
+            }
+        }
+    }
+}
+

@@ -46,7 +46,7 @@ const redAppIfLogin = (req, res, next) => {
 
 
 app.get('/', redAppIfLogin, (req, res) => {
-    res.render('index');
+    res.redirect('/app')
 });
 
 

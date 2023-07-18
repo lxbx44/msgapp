@@ -3,7 +3,7 @@ const authenticateUser = (req, res, next) => {
     const name = req.cookies.name;
 
     if (!username || !name) {
-        return res.redirect('/');
+        return res.redirect('/login');
     }
 
     next();

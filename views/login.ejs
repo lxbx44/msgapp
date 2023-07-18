@@ -9,40 +9,58 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login-register.css">
 
-    <link rel="shortcut icon" href="img/logo.gif">
+    <link rel="shortcut icon" href="">
     <title>Ashhdjkd</title>
 </head>
 <body>
 
-    <a href="/" class="home_btn"><i class="fa-solid fa-house"></i></a> 
-
-    <div class="toggle-container" style="display: none;">
+    <div class="toggle-container" style="position: absolute; display: block;">
         <label class="toggle">
             <input type="checkbox" id="mode-toggle">
-            <span class="toggle-slider"></span>
+        <span class="toggle-slider"></span>
         </label>
     </div>
 
 
-    <div class="register-f">
-        <form action="/login" method="POST">
-            <label for="username">Username:</label>
-            <br>
-            <input type="text" id="username" name="username" required>
+    <div class="login-f">
+        <div class="l-header">
+            <h2>Login</h2>
+            <p>Some text about the login</p>
+        </div>
 
-            <br>
+        <div class="login">
+            <form action="/login" method="POST">
+                <div>
+                <label for="username">Username</label>
+                <br>
+                <div><i class="fa-solid fa-user"></i> <input type="text" id="username" name="username" required></div>
+                </div>
 
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" id="password" name="password" required>
+                <br>
 
-            <br>
+                <div>
+                <label for="password">Password</label>
+                <br>
+                <div><i class="fa-solid fa-lock"></i> <input type="password" id="password" name="password" required></div>
+                </div>
 
-            <button type="submit">Login</button>
-        </form>
+                <br>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="l-space"></div>
+
+        <div class="l-register">
+            <p>Don't have an account yet? </p>
+            <a href="/register"><p> Create Now</p></a>
+        </div>
     </div>
+
+
+
 
     <% if (error) { %>
     <div class="error-message">
