@@ -26,6 +26,9 @@ body {
         grid-template-columns: 1fr;
         grid-template-rows: 20% 65% 5% 5%;
 
+        box-shadow: 0 0 20px 5px $background;
+
+
         .l-header {
             h1 {
                 color: $text;
@@ -79,6 +82,9 @@ body {
                 border: none;
                 font-size: medium;
             }
+            button:hover {
+                box-shadow: inset -20vw 0 0 0 $accent, inset 20vhw 0 0 0 $accent;
+            }
         }
         .l-register {
             justify-self: center;
@@ -127,6 +133,7 @@ body {
             }
         }
     }
+
     .register-f {
         position: absolute;
         top: 50%;
@@ -135,16 +142,18 @@ body {
         transform: translate(-50%, -50%);
         background-color: $background;
 
-        padding: 1rem 2.5rem;
+        padding: 2rem 2.5rem;
         border-radius: 20px;
 
-        height: 80vh;
+        height: 85vh;
         width: 25vw;
 
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 10% 83% 2%;
+        grid-template-rows: 15% 80% 5%;
 
+        box-shadow: 0 0 20px 5px $background;
+ 
         .r-header {
             h1 {
                 color: $text;
@@ -158,7 +167,7 @@ body {
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly;
 
             div label {
                 font-size: small;
@@ -255,6 +264,7 @@ body {
     
     .login-f {
         background-color: $l-background;
+        box-shadow: 0 0 20px 1px $l-background;
 
         .l-header h2 {
             color: $l-text;
@@ -311,5 +321,75 @@ body {
             }
         }
     }
+    .register-f {
+        background-color: $l-background;
+        box-shadow: 0 0 20px 1px $l-background;
+        .r-header {
+            h2 {
+                color: $l-text;
+            }
+            p {
+                color: gray;
+            }
+        }
+
+        .register form {
+            div div {
+                border: solid $l-text 2px;
+                i {
+                    color: $l-text;
+                }
+                input {
+                    background-color: $l-background;
+                    color: $l-text;
+                }
+            }
+            div div:focus-within {
+                border: solid $l-primary 2px;
+            }
+            div div:hover {
+                border: solid $l-primary 2px;
+            }
+
+            button {
+                background-color: $l-primary;
+            }
+        }
+        .r-login {
+            p {
+                color: gray;
+            }
+            a {
+                p {
+                    padding: 0.5rem;
+                    font-size: small;
+                    color: $accent;
+                    --c: #ee6ef7;
+                    --h: 1.2em;
+                    line-height: var(--h);
+                    background: 
+                    linear-gradient(var(--c) 0 0) no-repeat 
+                    calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+                    color: #0000;
+                    overflow: hidden;
+                    text-shadow: 
+                    0 calc(-1*var(--_t,0em)) var(--c), 
+                    0 calc(var(--h) - var(--_t,0em)) #fff;
+                    transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+
+                    margin:0;
+                    cursor: pointer;
+                    padding: 0 .1em;
+                }
+                p:hover {
+                    --_t: var(--h);
+                    --_p: 100%;
+                    --_s: .3s
+                }
+            }
+        }
+    }
+
+
 }
 
