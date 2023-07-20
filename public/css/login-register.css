@@ -16,6 +16,7 @@ body {
   background-position: auto center;
 }
 body .login-f {
+  min-width: 310px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -119,6 +120,7 @@ body .login-f .l-register a p:hover {
   --_s: .3s ;
 }
 body .register-f {
+  min-width: 310px;
   position: absolute;
   top: 50%;
   left: 50%;

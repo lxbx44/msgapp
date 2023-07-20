@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
                 (error, results) => {
                     if (error) {
                         if (error.code === 'ER_DUP_ENTRY') {
-                            return res.status(400).json({ message: 'Email or username already exists' });
+                            return res.status(400).json({ error: 'Email or username already exists' });
                         }
                         console.error('Error registering user:', error);
                         return res.render('register', { error: 'Registration failed' });

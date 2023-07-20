@@ -7,12 +7,10 @@
 
     <script src="https://kit.fontawesome.com/d90e43a863.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
     <link rel="stylesheet" href="css/login-register.css">
 
     <link rel="shortcut icon" href="">
-    <title>Ashhdjkd</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -57,16 +55,18 @@
             <p>Don't have an account yet? </p>
             <a href="/register"><p> Create Now</p></a>
         </div>
+
+        <% if (error) { %>
+        <div id="error-message" style="width: fit-content;position: absolute;left: 50%;transform: translateX(-50%);bottom: 1rem;">
+            <p style="color: #e76a6a;"><%= error %></p>
+        </div>
+        <% } %>
+
     </div>
 
 
 
 
-    <% if (error) { %>
-    <div class="error-message">
-        <p><%= error %></p>
-    </div>
-    <% } %>
 
     <script src="js/themeCookie.js"></script>
 </body>

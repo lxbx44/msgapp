@@ -9,6 +9,7 @@ body {
     background-position: auto center;
 
     .login-f {
+        min-width: 310px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -135,6 +136,7 @@ body {
     }
 
     .register-f {
+        min-width: 310px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -389,7 +391,5 @@ body {
             }
         }
     }
-
-
 }
 
