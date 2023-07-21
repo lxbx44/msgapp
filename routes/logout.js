@@ -7,6 +7,7 @@ router.get('/', auth, (req, res) => {
     res.clearCookie('username');
     res.clearCookie('name');
     res.clearCookie('email');
+    res.clearCookie('pfp');
 
     res.redirect('/');
 });

@@ -1,0 +1,120 @@
+@import 'col';
+@import 'keyframes';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('/img/bg-d.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: auto center;
+
+   .content {
+       background: transparent;
+       height: 92vh;
+       width: 97vw;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+
+       display: grid;
+       grid-template-columns: 24% 2% 74%;
+       grid-template-rows: 1fr;
+
+       .info {
+           background-color: rgba($color: $background, $alpha: 0.8);
+           border-radius: 20px;
+
+           display: grid;
+           grid-template-columns: 1fr;
+           grid-template-rows: 12% 8% 80%;
+
+           .i-profile {
+              div {
+                 height: 100%;
+                 width: 50%;
+
+                 display: grid;
+                 grid-template-columns: calc(((10 / 100) * 92vh) - 3.5vh) auto;
+
+                 align-content: center;
+
+                 cursor: pointer;
+
+                 user-select: none;
+
+                  img {
+                      width: calc(((10 / 100) * 92vh) - 3.5vh);
+                      margin-left: 1vw;
+                      border-radius: 50%;
+                  }
+                  p {
+                      margin-left: 1.5vw;
+                      align-self: center;
+                      width: fit-content;
+                      padding: 0.25rem 0.65rem;
+                      border-radius: 10px;
+                      color: $text;
+                  }
+                  p:hover {
+                      background-color: rgba($color: $background, $alpha: 0.7);
+                  }
+              } 
+           }
+           .i-search {
+               //background-color: green;
+           }
+           .i-people {
+               //background-color: pink;
+           }
+       }
+       .chat {
+           background-color: rgba($color: $background, $alpha: 0.8);
+           border-radius: 20px;
+       }
+   } 
+}
+
+.light-mode {
+    background-image: url('/img/bg-l.svg');
+
+    .info {
+        background-color: rgba($color: $l-background, $alpha: 0.8);
+        border-radius: 20px;
+    }
+    .chat {
+        background-color: rgba($color: $l-background, $alpha: 0.8);
+        border-radius: 20px;
+    }
+
+}
+
+@media (max-width: 900px) {
+    body {
+        .content {
+            grid-template-columns: 10% 2% 88%;
+        }
+    }
+}
+
+@media (max-width: 675px) {
+    body {
+        .content {
+            width: 95vw;
+            height: 96vh;
+            grid-template-columns: 100%;
+
+            .info {
+                display: none;
+            }
+            .space {
+                display: none;
+            }
+        }
+    }
+}

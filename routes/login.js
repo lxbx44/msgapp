@@ -2,19 +2,17 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
-const db = require('./../utils/db')
+const db = require('./../utils/db');
 
 const gotoapp = (req, res, next) => {
-    const username = req.cookies.username;
-    const name = req.cookies.name;
+  const username = req.cookies.username;
+  const name = req.cookies.name;
 
-    if (username || name) {
-        return res.redirect('/app')
-    }
-    next();
+  if (username || name) {
+    return res.redirect('/app');
+  }
+  next();
 };
-
-
 
 router.get('/', gotoapp, (req, res) => {
   res.render('login', { error: null });
@@ -47,15 +45,18 @@ router.post('/', (req, res) => {
         if (!isMatch) {
           return res.render('login', { error: 'Invalid credentials' });
         }
+          
+        const { pfp_path: pfp } = user;
 
-          res.cookie('username', user.username);
-          res.cookie('name', user.name);
-          res.cookie('email', user.email);
-          return res.redirect('/app');
+        res.cookie('username', user.username);
+        res.cookie('name', user.name);
+        res.cookie('email', user.email);
+        res.cookie('pfp', JSON.stringify(pfp));
+
+        return res.redirect('/app');
       });
     }
   );
-
 });
 
 module.exports = router;

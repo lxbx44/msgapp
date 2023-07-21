@@ -11,11 +11,34 @@
 
     <link rel="shortcut icon" href="">
 
-    <title>ajshdjashd</title>
+    <title>App</title>
 </head>
 
 <body>
 
+    <div class="content">
+        <div class="info">
+            <div class="i-profile">
+                <div>
+                    <% if (pfp === null) { %>
+                        <img src="img/def_pfp.png" alt="pfp">
+                    <% } else { %>
+                        <img src="uploads/<%= pfp %>" alt="pfp">
+                    <% }; %>
+
+                    <p> <%= name %> </p>
+                </div>
+            </div>
+            <div class="i-search"></div>
+            <div class="i-people"></div>
+        </div>
+
+        <div class="space"></div>
+
+        <div class="chat">
+
+        </div>
+    </div>
 
     <script src="js/themeCookie.js"></script>
 </body>
