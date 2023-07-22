@@ -19,7 +19,7 @@
     <div class="content">
         <div class="info">
             <div class="i-profile">
-                <div>
+                <div class="i-p-usr">
                     <% if (pfp === null) { %>
                         <img src="img/def_pfp.png" alt="pfp">
                     <% } else { %>
@@ -29,18 +29,90 @@
                     <p> <%= name %> </p>
                 </div>
             </div>
-            <div class="i-search"></div>
-            <div class="i-people"></div>
+
+            <div class="i-search">
+                <input type="text" placeholder="Search">
+            </div>
+
+            <div class="i-people">
+                <!-- NOTES TO ONESELF -->
+
+                <div id="chat">
+                    <% if (pfp === null) { %>
+                    <img src="img/def_pfp.png" alt="pfp">
+                    <% } else { %>
+                    <img src="uploads/<%= pfp %>" alt="pfp">
+                    <% }; %>
+
+                    <h4>Notes to Self</h4>
+                    
+                    <!-- Replace by last message sent -->
+                    <p>Yo bitch</p>
+                </div>
+
+                <!-- ALL CHATS -->
+            </div>
         </div>
 
         <div class="space"></div>
 
         <div class="chat">
+            <div class="c-info">
+                <div class="ci-prf">
+                    <!-- CHANGE pfp TO THE USERS PROFILE PICTURE -->
+                    <% if (pfp === null) { %>
+                    <img src="img/def_pfp.png" alt="pfp">
+                    <% } else { %>
+                    <img src="uploads/<%= pfp %>" alt="pfp">
+                    <% }; %>
 
+                    <p>Name</p>
+
+                    <h4></h4>
+                </div>
+                <ul>
+                    <li><i class="fa-solid fa-video"></i></li>
+                    <li><i class="fa-solid fa-phone"></i></li>
+                    <li><i class="fa-solid fa-ellipsis"></i></li>
+                </ul>
+            </div>
+
+            <div class="chat-chat">
+
+                <div class="cc-write">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="chat-info">
+            <div>
+                <h2>Select a person to start chating</h2>
+            </div>
         </div>
     </div>
 
+    <div class="profile-info">
+       <i id="pi-close" class="fa-solid fa-xmark"></i> 
+
+       <div id="pi-content">
+            <div class="pi-c-pages">
+
+            </div>
+            
+            <div class="pi-c-space"></div>
+
+            <div class="pi-c-profile">
+
+            </div>
+       </div>
+
+    </div>
+
+
     <script src="js/themeCookie.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
 

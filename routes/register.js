@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
         res.cookie('username', username);
         res.cookie('name', name);
         res.cookie('email', email);
-        res.cookie('pfp', null);
+        res.cookie('pfp', JSON.stringify(null));
 
         await db.query('UPDATE users SET pfp_path = NULL WHERE username = ?', [username]);
         return res.redirect('/login');

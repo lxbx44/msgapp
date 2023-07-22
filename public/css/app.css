@@ -1,3 +1,39 @@
+@keyframes APP-openProfile {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    height: 80vh;
+    width: 60vw;
+  }
+}
+@keyframes APP-openProfileAll {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes APP-closeProfile {
+  from {
+    width: 60vw;
+    height: 80vh;
+  }
+  to {
+    height: 0;
+    width: 0;
+  }
+}
+@keyframes APP-closeProfileAll {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -28,35 +64,201 @@ body .content .info {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 12% 8% 80%;
+  align-items: center;
 }
 body .content .info .i-profile div {
-  height: 100%;
+  height: 11.04vh;
   width: 50%;
   display: grid;
-  grid-template-columns: 5.7vh auto;
+  grid-template-columns: 7.54vh auto;
   align-content: center;
   cursor: pointer;
   user-select: none;
+  border-radius: 20px;
 }
 body .content .info .i-profile div img {
-  width: 5.7vh;
+  width: 6.2vh;
   margin-left: 1vw;
   border-radius: 50%;
+  border: solid 2px #b887f8;
 }
 body .content .info .i-profile div p {
-  margin-left: 1.5vw;
+  margin-left: 1.7vw;
   align-self: center;
   width: fit-content;
   padding: 0.25rem 0.65rem;
   border-radius: 10px;
   color: #fafafa;
 }
-body .content .info .i-profile div p:hover {
+body .content .info .i-profile div:hover {
   background-color: rgba(5, 5, 5, 0.7);
+  transition: all 0.2s ease-in-out;
+}
+body .content .info .i-profile div:hover img {
+  border: solid 2px #ee6ef7;
+  transition: all 0.2s ease-in-out;
+}
+body .content .info .i-search {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+body .content .info .i-search input {
+  height: 70%;
+  width: calc(90% - 2rem);
+  border: solid 2px #b887f8;
+  border-radius: 10px;
+  padding: 0 1rem;
+  outline: none;
+  background-color: rgba(5, 5, 5, 0.8);
+  color: #fafafa;
+  font-weight: bold;
+}
+body .content .info .i-search input:focus {
+  border: solid 2px #ee6ef7;
+  transition: all 0.2s ease-in-out;
+}
+body .content .info .i-people {
+  justify-self: center;
+  height: calc(100% - 2rem);
+  width: 90%;
+  margin: 1rem 0rem;
+  border-radius: 20px;
+}
+body .content .info .i-people div {
+  height: 15%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: calc(0.15 * (66.24vh - 2rem + 15vw)) auto;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  border-radius: 20px;
+  color: #fafafa;
+  cursor: pointer;
+  user-select: none;
+}
+body .content .info .i-people div img {
+  width: calc(0.15 * (66.24vh - 2rem) - 2vh);
+  margin-left: 1.5vw;
+  border-radius: 50%;
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+body .content .info .i-people div h4 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  height: 80%;
+  align-self: flex-end;
+}
+body .content .info .i-people div p {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  height: 80%;
+  align-self: flex-start;
+}
+body .content .info .i-people div:hover {
+  background-color: rgba(5, 5, 5, 0.9);
+  transition: ease-in-out 0.2s all;
 }
 body .content .chat {
+  display: block;
   background-color: rgba(5, 5, 5, 0.8);
   border-radius: 20px;
+  display: grid;
+  grid-template-rows: 12% 88%;
+  grid-template-columns: 1fr;
+}
+body .content .chat .c-info {
+  border-radius: 20px;
+  background-image: linear-gradient(to bottom, #050505, transparent);
+  padding: 0.75rem 1rem;
+  height: calc(100% - 1.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+body .content .chat .c-info div {
+  display: flex;
+}
+body .content .chat .c-info div img {
+  width: 5.808vh;
+}
+body .content .chat .c-info div p {
+  color: #fafafa;
+  margin-left: 1rem;
+  height: 100%;
+  align-self: center;
+}
+body .content .chat .c-info ul {
+  display: flex;
+  list-style-type: none;
+}
+body .content .chat .c-info ul li {
+  color: #fafafa;
+  font-size: large;
+  border-radius: 30px;
+}
+body .content .chat .c-info ul li i {
+  padding: 0.7rem;
+  border-radius: 30px;
+}
+body .content .chat .c-info ul li:hover {
+  background-color: rgba(5, 5, 5, 0.8);
+  transition: all ease-in-out 0.2s;
+}
+body .content .chat-info {
+  background-color: rgba(5, 5, 5, 0.8);
+  border-radius: 20px;
+  user-select: none;
+  display: none;
+}
+body .content .chat-info div {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+body .content .chat-info div h2 {
+  width: fit-content;
+  color: #fafafa;
+}
+body .profile-info {
+  height: 0vh;
+  width: 0vw;
+  display: none;
+  box-shadow: 0 0 20px 5px #050505;
+  border-radius: 20px;
+  background-color: #050505;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .profile-info * {
+  opacity: 0;
+}
+body .profile-info #pi-close {
+  position: absolute;
+  top: 2.5vh;
+  right: 1.5vw;
+  color: #fafafa;
+}
+body .profile-info #pi-close:hover {
+  scale: 1.2;
+  transition: all 0.2s ease-out;
+}
+body .profile-info #pi-content {
+  height: 70vh;
+  width: 50vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
 }
 
 .light-mode {
