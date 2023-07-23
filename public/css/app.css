@@ -9,10 +9,13 @@
   }
 }
 @keyframes APP-openProfileAll {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  75% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -27,10 +30,13 @@
   }
 }
 @keyframes APP-closeProfileAll {
-  from {
+  0% {
     opacity: 1;
   }
-  to {
+  80% {
+    opacity: 0;
+  }
+  100% {
     opacity: 0;
   }
 }
@@ -191,6 +197,8 @@ body .content .chat .c-info div p {
   margin-left: 1rem;
   height: 100%;
   align-self: center;
+  cursor: pointer;
+  user-select: none;
 }
 body .content .chat .c-info ul {
   display: flex;
@@ -199,14 +207,15 @@ body .content .chat .c-info ul {
 body .content .chat .c-info ul li {
   color: #fafafa;
   font-size: large;
+  margin-left: 0.5rem;
   border-radius: 30px;
 }
 body .content .chat .c-info ul li i {
-  padding: 0.7rem;
+  padding: 0.4rem;
   border-radius: 30px;
 }
 body .content .chat .c-info ul li:hover {
-  background-color: rgba(5, 5, 5, 0.8);
+  background-color: rgba(184, 135, 248, 0.8);
   transition: all ease-in-out 0.2s;
 }
 body .content .chat-info {
@@ -238,27 +247,88 @@ body .profile-info {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-body .profile-info * {
-  opacity: 0;
-}
 body .profile-info #pi-close {
   position: absolute;
   top: 2.5vh;
   right: 1.5vw;
   color: #fafafa;
+  opacity: 0;
 }
 body .profile-info #pi-close:hover {
   scale: 1.2;
   transition: all 0.2s ease-out;
 }
 body .profile-info #pi-content {
-  height: 70vh;
-  width: 50vw;
-  position: absolute;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 27% 73%;
+  grid-template-rows: 1fr;
+}
+body .profile-info #pi-content .pi-c-pages div {
+  height: 85%;
+  width: calc(90% - 1rem);
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: red;
+  margin-left: 1rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.062745098);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .profile-info #pi-content .pi-c-pages div button {
+  height: 2rem;
+  width: 80%;
+  margin-top: 1rem;
+  border-radius: 20px;
+  background-color: #050505;
+  outline: none;
+  border: none;
+  color: rgba(250, 250, 250, 0.8);
+  text-transform: uppercase;
+}
+body .profile-info #pi-content .pi-c-general div {
+  overflow-y: auto;
+  height: 85%;
+  width: 85%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.062745098);
+}
+body .profile-info #pi-content .pi-c-general div h2 {
+  margin: 1.5rem;
+  color: #fafafa;
+}
+body .profile-info #pi-content .pi-c-general div div {
+  overflow: clip;
+  background-color: transparent;
+  margin-left: 2.5rem;
+  height: 100%;
+  width: calc(100% - 2.5rem);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+body .profile-info #pi-content .pi-c-general div div h3 {
+  color: #fafafa;
+}
+body .profile-info #pi-content .pi-c-general div div div {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  margin-left: 2.5rem;
+}
+body .profile-info #pi-content .pi-c-general div div div .fst-img img {
+  width: 10px;
 }
 
 .light-mode {

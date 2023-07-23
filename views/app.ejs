@@ -98,13 +98,33 @@
 
        <div id="pi-content">
             <div class="pi-c-pages">
-
+                <div>
+                    <button>Profile</button>
+                </div>
             </div>
             
-            <div class="pi-c-space"></div>
+            <div class="pi-c-general">
+                <div>
+                    <h2>General</h2>
+                    <div>
+                        <h3>Profile</h3> 
+                        <div>
+                            <div class="fst-img">
+                                <% if (pfp === null) { %>
+                                <img src="img/def_pfp.png" alt="pfp">
+                                <% } else { %>
+                                <img src="uploads/<%= pfp %>" alt="pfp">
+                                <% }; %>
+                            </div>
 
-            <div class="pi-c-profile">
+                            <div class="fst-dn"><p>Display name: </p><input type="text" value="<%= name %>"></div>
 
+                            <div class="fst-usr"><p>Username: </p><p><%= username %></p></div>
+
+                        </div>
+                        <h4><%= username %></h4>
+                    </div>
+                </div>
             </div>
        </div>
 

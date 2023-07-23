@@ -189,6 +189,9 @@ body {
                         margin-left: 1rem;
                         height: 100%;
                         align-self: center;
+                        cursor: pointer;
+                        user-select: none;
+
                     }
                 }
                 ul {
@@ -197,14 +200,15 @@ body {
                     li {
                         color: $text;
                         font-size: large;
+                        margin-left: 0.5rem;
                         i {
-                            padding: 0.7rem;
+                            padding: 0.4rem;
                             border-radius: 30px;
                         }
                             border-radius: 30px;
                     }
                     li:hover {
-                        background-color: rgba($color: $background, $alpha: 0.8);
+                        background-color: rgba($color: $primary, $alpha: 0.8);
                         transition: all ease-in-out 0.2s;
                     }
                 }
@@ -231,17 +235,11 @@ body {
        }
    } 
    .profile-info {
-       //height: 80vh;
-       //width: 60vw;
        height: 0vh;
        width: 0vw;
        display: none;
 
        box-shadow: 0 0 20px 5px $background;
-
-       * {
-           opacity: 0;
-       }
 
        border-radius: 20px;
        background-color: $background;
@@ -256,22 +254,118 @@ body {
            top: 2.5vh;
            right: 1.5vw;
            color: $text;
+           opacity: 0;
        }
        #pi-close:hover {
            scale: 1.2;
            transition: all 0.2s ease-out;
        }
-
        #pi-content {
-           height: 70vh;
-           width: 50vw;
+           opacity: 0;
 
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%);
+           height: 100%;
+           width: 100%;
 
-           background-color: red;
+           display: grid;
+
+           grid-template-columns: 27% 73%;
+           grid-template-rows: 1fr;
+
+           .pi-c-pages {
+               div {
+                   height: 85%;
+                   width: calc(90% - 1rem);
+
+                   position: relative;
+                   top: 50%;
+                   left: 50%;
+                   transform: translate(-50%, -50%);
+
+                   margin-left: 1rem;
+
+                   border-radius: 20px;
+                   background-color: #ffffff10;
+
+                   display: flex;
+                   flex-direction: column;
+
+                   align-items: center;
+
+                   button {
+                       height: 2rem;
+                       width: 80%;
+
+                       margin-top: 1rem;
+
+                       border-radius: 20px;
+
+                       background-color: $background;
+
+                       outline: none;
+                       border: none;
+
+                       color: rgba($color: $text, $alpha: 0.8);
+
+                       text-transform: uppercase;
+                   }
+               }
+
+           }
+
+           .pi-c-general {
+               div {
+                   overflow-y: auto;
+                   
+                   height: 85%;
+                   width: 85%;
+
+                   position: relative;
+                   top: 50%;
+                   left: 50%;
+                   transform: translate(-50%, -50%);
+                   background-color: blue;
+
+                   border-radius: 20px;
+                   background-color: #ffffff10;
+
+                   h2 {
+                       margin: 1.5rem;
+                       color: $text;
+                   }
+
+                   div {
+                       overflow: clip;
+                       background-color: transparent;
+
+                       margin-left: 2.5rem;
+
+                       height: 100%;
+                       width: calc(100% - 2.5rem);
+                       border-radius: 0;
+
+                       display: flex;
+                       flex-direction: column;
+
+                       h3 {
+                           color: $text;
+                       }
+                       div {
+                           display: grid;
+
+                           height: 100%;
+                           width: 100%;
+                           border-radius: 0;
+                           margin-left: 2.5rem;
+                           
+                           .fst-img {
+                               img {
+                                   width: 10px;
+                               }
+                           }
+                       }
+                   }
+               }
+           }
        }
    }
 }
