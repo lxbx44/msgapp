@@ -37,9 +37,12 @@ body {
            align-items: center;
 
            .i-profile {
-               div {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+
+               .i-p-usr {
                    height: calc((12 / 100) * 92vh);
-                   width: 50%;
+                   width: 100%;
 
                    display: grid;
                    grid-template-columns: calc(((12 / 100) * 92vh) - 3.5vh) auto;
@@ -67,17 +70,40 @@ body {
                        color: $text;
                    }
                }
-               div:hover {
+               .i-p-usr:hover {
                    background-color: rgba($color: $background, $alpha: 0.7);
                    transition: all 0.2s ease-in-out;
                     img {
                        border: solid 2px $accent;
                        transition: all 0.2s ease-in-out;
                    }
-
                }
 
+               .i-p-btns {
+                   height: calc((12 / 100) * 92vh);
+                   width: 100%;
+
+                   display: flex;
+                   flex-direction: row-reverse;
+                   align-items: center;
+
+                   align-self: center;
+
+                   a i, i {
+                       color: $text;
+                       padding: 0.5rem;
+
+                       margin-right: 0.75rem;
+
+                       border-radius: 50%;
+                   }
+                   a i:hover, i:hover {
+                       transition: all ease-in-out 0.2s;
+                       background-color: $primary;
+                   }
+               }
            }
+
            .i-search {
                height: 100%;
                width: 100%;
@@ -158,7 +184,6 @@ body {
            }
        }
        .chat {
-           display: block;
            background-color: rgba($color: $background, $alpha: 0.8);
            border-radius: 20px;
 
@@ -214,6 +239,7 @@ body {
                     }
                 }
            }
+           display: none;
        }
        .chat-info {
            background-color: rgba($color: $background, $alpha: 0.8);
@@ -232,7 +258,7 @@ body {
                    color: $text;
                }
            }
-          display: none; 
+          display: block; 
        }
    } 
    .profile-info {

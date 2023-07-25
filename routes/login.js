@@ -51,6 +51,7 @@ router.post('/', (req, res) => {
         res.cookie('username', user.username);
         res.cookie('name', user.name);
         res.cookie('email', user.email);
+        res.cookie('userId', user.id);
         res.cookie('pfp', JSON.stringify(pfp));
 
         return res.redirect('/app');

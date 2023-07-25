@@ -10,9 +10,10 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const appRouter = require('./routes/app');
-const profileRouter = require('./routes/profile');
+const friendsRouter = require('./routes/friends');
 const updateProfile = require('./routes/update-profile');
 const removePfp = require('./routes/remove-pfp');
+const sendFriendRequest = require('./routes/send-friend-request');
 
 const db = require('./utils/db')
 
@@ -25,12 +26,13 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT;
 
-
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.listen(PORT);
+
+app.set('views', 'views')
 
 db.connect((err) => {
     if (err) console.log(`Error connecting to db\nError: ${err}`);
@@ -59,7 +61,8 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/app', appRouter);
-app.use('/profile', profileRouter);
+app.use('/friends', friendsRouter);
 
 app.use('/update-profile', updateProfile);
 app.use('/remove-pfp', removePfp);
+app.use('/send-friend-request', sendFriendRequest);

@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
 
             const prevProfilePathResult = req.cookies.pfp;
 
-            if (prevProfilePathResult !== null) {
+            if (prevProfilePathResult != 'null') {
                 const prevProfileImagePath = path.join(UPLOADS_FOLDER, prevProfilePathResult);
                 fs.unlink(prevProfileImagePath, (err) => {
                     if (err) console.error('Error deleting previous profile picture:', err);

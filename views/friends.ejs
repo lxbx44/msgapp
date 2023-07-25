@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://kit.fontawesome.com/d90e43a863.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="css/friends.css">
+
+        <link rel="shortcut icon" href="">
+
+        <title>Profile</title>
+    </head>
+    <body>
+        <div class="content">
+            <div class="newFriendInput">
+                <form id="friendRequestForm" action="/send-friend-request" method="POST">
+                    <label for="friendUsername">Username:</label>
+                    <input type="text" id="friendUsername" name="friendUsername" required>
+                    <button type="submit">Send Friend Request</button>
+                </form>
+
+            <% if (error !== undefined && error !== null) { %>
+            <p style="color: red;"><%= error %></p>
+            <% }; %>
+
+            </div>
+        </div>
+
+        <script src="js/themeCookie.js"></script>
+        <script src="js/f-friends.js"></script>
+    </body>
+</html>
+
