@@ -18,7 +18,27 @@ router.get('/', gotoapp, (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { username, name, email, password, confirmPassword } = req.body;
+    let { username, name, email, password, confirmPassword } = req.body;
+
+    // Trim extra spaces before and after the name
+    name = name.trim();
+
+    // Validation checks for username, name, and password
+    const usernameRegex = /^[a-zA-Z0-9_]{1,10}$/;
+    const nameRegex = /^.{1,10}$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+
+    if (!usernameRegex.test(username)) {
+        return res.render('register', { error: 'Invalid username. It must contain only numbers, letters, and underscores, and be at most 10 characters long.' });
+    }
+
+    if (!nameRegex.test(name)) {
+        return res.render('register', { error: 'Invalid name. It must be at most 10 characters long.' });
+    }
+
+    if (!passwordRegex.test(password)) {
+        return res.render('register', { error: 'Invalid password. It must be at least 8 characters long and contain both letters and numbers.' });
+    }
 
     if (password !== confirmPassword) {
         return res.render('register', { error: 'Passwords do not match' });
@@ -47,4 +67,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-

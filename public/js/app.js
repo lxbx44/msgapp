@@ -74,5 +74,8 @@ window.addEventListener('keydown', (event) => {
 });
 
 
-// select chat
+
+document.querySelector("#changeImg").addEventListener("click", () => {
+    document.querySelector("#profileImageInput").click();
+});
 

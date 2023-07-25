@@ -20,7 +20,7 @@
         <div class="info">
             <div class="i-profile">
                 <div class="i-p-usr">
-                    <% if (pfp === null) { %>
+                    <% if (pfp == 'null') { %>
                         <img src="img/def_pfp.png" alt="pfp">
                     <% } else { %>
                         <img src="uploads/<%= pfp %>" alt="pfp">
@@ -38,7 +38,7 @@
                 <!-- NOTES TO ONESELF -->
 
                 <div id="chat">
-                    <% if (pfp === null) { %>
+                    <% if (pfp == 'null') { %>
                     <img src="img/def_pfp.png" alt="pfp">
                     <% } else { %>
                     <img src="uploads/<%= pfp %>" alt="pfp">
@@ -60,7 +60,7 @@
             <div class="c-info">
                 <div class="ci-prf">
                     <!-- CHANGE pfp TO THE USERS PROFILE PICTURE -->
-                    <% if (pfp === null) { %>
+                    <% if (pfp == 'null') { %>
                     <img src="img/def_pfp.png" alt="pfp">
                     <% } else { %>
                     <img src="uploads/<%= pfp %>" alt="pfp">
@@ -99,30 +99,45 @@
        <div id="pi-content">
             <div class="pi-c-pages">
                 <div>
-                    <button>Profile</button>
+                    <button><p>General</p></button>
+                    <button><p>Apparence</p></button>
                 </div>
             </div>
             
             <div class="pi-c-general">
-                <div>
+                <div class="pic-general-content">
                     <h2>General</h2>
-                    <div>
-                        <h3>Profile</h3> 
-                        <div>
+                    <div class="picgcc">
+                        <h3>Profile <span>(<%= username %>)</span></h3> 
+                        <form id="profileForm" action="/update-profile" method="POST" enctype="multipart/form-data">
+
+                        <div class="picgcc-c">
                             <div class="fst-img">
-                                <% if (pfp === null) { %>
+                                <% if (pfp == 'null') { %>
                                 <img src="img/def_pfp.png" alt="pfp">
                                 <% } else { %>
                                 <img src="uploads/<%= pfp %>" alt="pfp">
                                 <% }; %>
+                                <label for="profileImageInput">
+                                    <input type="file" id="profileImageInput" name="profileImage" accept="image/*" style="display:none" onchange="document.getElementById('profileForm').submit()">
+                                </label>
+                                <div id="changeImg"><i class="fa-solid fa-pen-to-square"></i></div>
                             </div>
 
-                            <div class="fst-dn"><p>Display name: </p><input type="text" value="<%= name %>"></div>
+                            <div class="fst-dn"><p>Display name: </p><input name="newName" id="display-name-input" type="text" value="<%= name %>"></div>
 
-                            <div class="fst-usr"><p>Username: </p><p><%= username %></p></div>
-
+                            <div class="fst-email"><p>Email: </p><input name="newEmail" id="email-input" type="email" value="<%= email %>"></div>
                         </div>
-                        <h4><%= username %></h4>
+                        <button id="save-pf-changes">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="space_space"></div>
+
+                    <div class="picgcc-pfp">
+                        <h3>Remove Profile Picture</h3>
+                        <form id="pfpForm" action="/remove-pfp" method="POST" enctype="multipart/form-data">
+                            <button type="submit">Remove</button> 
+                        </form>
                     </div>
                 </div>
             </div>

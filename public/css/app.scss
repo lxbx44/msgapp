@@ -183,6 +183,7 @@ body {
                     
                     img {
                         width: calc(((74 / 100) * 92vh) * (10 / 100) - 1vh);
+                        border-radius: 50%;
                     }
                     p {
                         color: $text;
@@ -264,6 +265,7 @@ body {
            opacity: 0;
 
            height: 100%;
+           max-height: 100%;
            width: 100%;
 
            display: grid;
@@ -272,6 +274,8 @@ body {
            grid-template-rows: 1fr;
 
            .pi-c-pages {
+               height: 100%;
+               max-height: 100%;
                div {
                    height: 85%;
                    width: calc(90% - 1rem);
@@ -307,61 +311,195 @@ body {
                        color: rgba($color: $text, $alpha: 0.8);
 
                        text-transform: uppercase;
+
+                       cursor: pointer;
+
+                       transition: all 0.2s ease;
+                   }
+                   button:hover {
+                       scale: 1.08;
+                   }
+                   button:active {
+                       scale: 0.95;
                    }
                }
 
            }
 
            .pi-c-general {
-               div {
+               max-height: 100%;
+               overflow-y: auto;
+               .pic-general-content {
                    overflow-y: auto;
-                   
-                   height: 85%;
-                   width: 85%;
+
+                   height: calc(85% - 2rem);
+                   width: calc(90% - 2rem);
 
                    position: relative;
                    top: 50%;
                    left: 50%;
                    transform: translate(-50%, -50%);
-                   background-color: blue;
 
                    border-radius: 20px;
                    background-color: #ffffff10;
 
+                   padding: 1rem;
+
+                   color: $text;
+
                    h2 {
-                       margin: 1.5rem;
-                       color: $text;
+                       margin-bottom: 1rem;
+                   }
+                   .space_space {
+                       height: 2px;
+                       width: 100%;
+                       border-radius: 40px;
+                       background-color: rgba($color: $text, $alpha: 0.4);
+                       margin: 1rem 0;
                    }
 
-                   div {
-                       overflow: clip;
-                       background-color: transparent;
-
-                       margin-left: 2.5rem;
-
-                       height: 100%;
-                       width: calc(100% - 2.5rem);
-                       border-radius: 0;
-
-                       display: flex;
-                       flex-direction: column;
-
+                   .picgcc {
                        h3 {
-                           color: $text;
+                           margin-bottom: 0.5rem;
+                       } 
+                       
+                       button {
+                           margin-top: 0.5rem;
+                           padding: 0.25rem 0.75rem;
+                           background-color: $primary;
+                           border: none;
+                           border-radius: 20px;
+                           transition: all 0.2s ease;
                        }
-                       div {
+                       button:hover {
+                           scale: 1.08;
+                       }
+                       button:active {
+                           scale: 0.95;
+                       }
+                       
+                       .picgcc-c {
+                           grid-template-columns: 1fr 1fr;
                            display: grid;
+                           grid-template-rows: 1fr 1fr;
 
-                           height: 100%;
-                           width: 100%;
-                           border-radius: 0;
-                           margin-left: 2.5rem;
-                           
+                           justify-items: center;
+                           align-items: center;
+
                            .fst-img {
+                               grid-column: 2 / 3;
+                               grid-row: 1 / 3;
+
+                               display: flex;
+                               justify-content: center;
+
+                               height: 6rem;
+                               width: 6rem;
+
                                img {
-                                   width: 10px;
+                                   width: 6rem;
+                                   height: 6rem;
+                                   align-self: center;
+                                   user-select: none;
+                                   border-radius: 50%;
+                                   z-index: 10;
+                                   background-color: $text;
+                               }
+                               div {
+                                   height: fit-content;
+                                   width: fit-content;
+                                   position: absolute;
+                                   align-self: center;
+                                   width: 6.1rem;
+                                   height: 6.1rem;
+                                   border-radius: 50%;
+                                   background-color: rgba($color: black, $alpha: 0.75);
+
+                                   display: flex;
+                                   justify-content: center;
+                                   align-items: center;
+
+                                   i {
+                                       font-size: larger;
+                                   }
                                }
                            }
+                           .fst-img:hover {
+                               img, div {
+                                   transition: all 0.2s ease;
+                                   transform: scale(1.1);
+                               }
+                               div {
+                                   z-index: 20;
+                               }
+                           }
+                           .fst-img:active {
+                               img, div {
+                                   transition: all 0.2s ease;
+                                   scale: 0.95;
+                               }
+                           }
+
+                           .fst-dn {
+                               grid-column: 1 / 2;
+                               grid-row: 1 / 2;
+                           }
+                           .fst-email {
+                               grid-column: 1 / 2;
+                               grid-row: 2 / 3;
+                           }
+                           .fst-dn, .fst-email {
+                               p {
+                                   font-size: 0.9rem;
+                                   font-weight: bold;
+                                   margin-bottom: 0.5rem;
+                               }
+                               input {
+                                   height: 1.5rem;
+                                   margin-bottom: 0.8rem;
+
+                                   border: solid 2px $primary;
+                                   border-radius: 10px;
+                                   padding: 0 1rem;
+
+                                   outline: none;
+
+                                   background-color: rgba($color: $background, $alpha: 0.8);
+
+                                   color: $text;
+                                   font-weight: bold;
+                               }
+                               input:focus {
+                                   border: solid 2px $accent;
+                                   transition: all 0.2s ease-in-out;
+                               }
+                           }
+                       }
+                   }
+                   .picgcc-pfp {
+                       height: fit-content;
+                       display: grid;
+                       grid-template-rows: repeat(1fr, 2);
+
+                       align-items: center;
+                       
+                       h3 {
+                           margin-bottom: 0.5rem;
+                       } 
+                       
+                       button {
+                           margin-top: 0.5rem;
+                           padding: 0.25rem 0.75rem;
+                           background-color: $primary;
+                           border: none;
+                           border-radius: 20px;
+                           transition: all 0.2s ease;
+                       }
+                       button:hover {
+                           scale: 1.08;
+                       }
+                       button:active {
+                           scale: 0.95;
                        }
                    }
                }

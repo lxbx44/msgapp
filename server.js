@@ -4,16 +4,21 @@ const dotenv = require('dotenv').config();
 const mysql = require('mysql');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const fileUpload = require('express-fileupload');
 
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const appRouter = require('./routes/app');
 const profileRouter = require('./routes/profile');
+const updateProfile = require('./routes/update-profile');
+const removePfp = require('./routes/remove-pfp');
 
 const db = require('./utils/db')
 
 var app = express();
+
+app.use(fileUpload());
 
 app.use(cookieParser());
 
@@ -56,4 +61,5 @@ app.use('/logout', logoutRouter);
 app.use('/app', appRouter);
 app.use('/profile', profileRouter);
 
-
+app.use('/update-profile', updateProfile);
+app.use('/remove-pfp', removePfp);
