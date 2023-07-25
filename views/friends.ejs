@@ -27,6 +27,17 @@
             <% }; %>
 
             </div>
+
+            <div class="friendList">
+                <% if (friends.length == 0) { %>
+                    <p>You have no friends, haha looser</p>
+                <% } else { %>
+                    <% friends.forEach((friend) => { %>
+                    <p><%= friend.username %></p>
+                    <% }) %>
+                <% } %>
+            </div>
+
         </div>
 
         <script src="js/themeCookie.js"></script>
