@@ -15,28 +15,112 @@
     </head>
     <body>
         <div class="content">
-            <div class="newFriendInput">
-                <form id="friendRequestForm" action="/send-friend-request" method="POST">
-                    <label for="friendUsername">Username:</label>
-                    <input type="text" id="friendUsername" name="friendUsername" required>
-                    <button type="submit">Send Friend Request</button>
-                </form>
 
+            <a class="gohome" href="/app">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            
             <% if (error !== undefined && error !== null) { %>
-            <p style="color: red;"><%= error %></p>
+                <div class="newFriendInput" style="grid-template-rows: 85% 15%;">
+                    <form id="friendRequestForm" action="/send-friend-request" method="POST">
+                        <!--<label for="friendUsername">Username:</label>-->
+                        <input type="text" id="friendUsername" name="friendUsername" placeholder="Send a friend Request" required>
+                        <button type="submit">Send Friend Request</button>
+                    </form>
+
+                    <p><%= error %> <i id="redirectFriends" class="fa-solid fa-xmark"></i></p>
+                </div>
+            <% } else { %>
+                <div class="newFriendInput" style="grid-template-rows: 1fr;">
+                    <form id="friendRequestForm" action="/send-friend-request" method="POST">
+                        <!--<label for="friendUsername">Username:</label>-->
+                        <input type="text" id="friendUsername" name="friendUsername" placeholder="Send a friend Request" required>
+                        <button type="submit">Send Friend Request</button>
+                    </form>
+                </div>
             <% }; %>
 
-            </div>
+            <% if (fl.length == 0) { %>
+                <div class="friendList">
+                    <h2>Friend List</h2>
+                    
+                    <p>You have no friends currently</p>
+                </div>
+            <% } else { %>
+                <div class="friendList">
+                    <h2>Friend List</h2>
 
-            <div class="friendList">
-                <% if (friends.length == 0) { %>
-                    <p>You have no friends, haha looser</p>
-                <% } else { %>
-                    <% friends.forEach((friend) => { %>
-                    <p><%= friend.username %></p>
-                    <% }) %>
-                <% } %>
-            </div>
+                    <div class="flf" style="grid-template-rows: 3rem repeat(<%= fl %>, 5rem);">
+
+                        <div class="friends-c">
+                            <p> pfp </p>
+                            <p> name </p>
+                            <p> username </p>
+                            <p></p>
+                            <p>Delete</p>
+                        </div>
+
+                        <% friends.forEach((friend) => { %>
+                            <div class="friends-content">
+                                <% if (friend.pfp_path === null) { %>
+                                    <img src="img/def_pfp.png" alt="pfp">
+                                <% } else { %>
+                                    <img src="uploads/<%= friend.pfp_path %>" alt="pfp">
+                                <% }; %>
+
+                                <div><p><%= friend.name %></p></div>
+                                <div><p><%= friend.username %></p></div>
+
+                                <div></div>
+
+                                <p class="fc-close"><i class="fa-solid fa-x"></i></p>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }; %>
+
+
+
+            <% if (pl == 0) { %>
+                <div class="pendingList">
+                    <h2>Friend List</h2>
+                    
+                    <p>You have no friends currently</p>
+                </div>
+            <% } else { %>
+                <div class="pendingList">
+                    <h2>Pending List</h2>
+
+                    <div class="plf" style="grid-template-rows: 3rem repeat(<%= pl %>, 5rem);">
+
+                        <div class="pending-c">
+                            <p> pfp </p>
+                            <p> username </p>
+                            <p></p>
+                            <p>Accept</p>
+                            <p>Reject</p>
+                        </div>
+
+                        <% pending.forEach((p) => { %>
+                            <div class="pending-content">
+                                <% if (p.pfp_path === null) { %>
+                                    <img src="img/def_pfp.png" alt="pfp">
+                                <% } else { %>
+                                    <img src="uploads/<%= p.pfp_path %>" alt="pfp">
+                                <% }; %>
+
+                                <div><p><%= p.username %></p></div>
+
+                                <div></div>
+
+                                <p class="pc-c"><i class="fa-solid fa-check"></i></p>
+                                <p class="pc-x"><i class="fa-solid fa-x"></i></p>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }; %>
 
         </div>
 

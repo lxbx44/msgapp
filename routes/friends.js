@@ -9,7 +9,7 @@ router.get('/', auth, (req, res) => {
     const name = req.cookies.name;
     const email = req.cookies.email;
     const userId = req.cookies.userId;
-    const error = req.query.error;
+    const pfp = req.cookies.pfp;
 
     db.query(
         'SELECT u.username, u.pfp_path, u.name FROM friends AS f JOIN users AS u ON (f.friend_id = u.id) WHERE f.user_id = ? AND f.status = ?',
@@ -24,7 +24,7 @@ router.get('/', auth, (req, res) => {
                     [userId, 'accepted'],
                     (error2, results2) => {
                         if (error2) {
-                            console.error('Error fetching friends:', error);
+                            console.error('Error fetching friends:', error2);
                             res.status(500).send('Failed to fetch friends');
                         } else {
                             const allResults = results.concat(results2);
@@ -36,8 +36,43 @@ router.get('/', auth, (req, res) => {
                                 seen[friend.username] = true;
                                 return true;
                             });
-                            console.log(results.length)
-                            res.render('friends', { username, name, email, userId, error, friends: uniqueResults })
+                            const error = req.query.error;
+
+                            let fl = 0;
+                            uniqueResults.forEach(()=> {
+                                fl++;
+                            })
+
+
+                            db.query(
+                                'SELECT u.username, u.pfp_path, u.name FROM friends AS f JOIN users AS u ON (f.user_id = u.id) WHERE f.friend_id = ? AND f.status = ?',
+                                [userId, 'pending'],
+                                (error3, results3) => {
+                                    if (error3) {
+                                        console.error('Error fetching friends:', error3);
+                                        res.status(500).send('Failed to fetch friends');
+                                    } else {
+                                        const allResults2 = results.concat(results3);
+                                        const seen2 = {};
+
+                                        const uniqueResults2 = allResults2.filter((friend) => {
+                                            if (friend.username === username) return false; // Exclude current user
+                                            if (seen[friend.username]) return false; // Exclude duplicates
+                                            seen[friend.username] = true;
+                                            return true;
+                                        });
+                                        
+                                        const error = req.query.error;
+
+                                        let pl = 0;
+                                        uniqueResults2.forEach(()=> {
+                                            pl++;
+                                        })
+                                        res.render('friends', { username, name, email, userId, pfp, error, friends: uniqueResults, pending: uniqueResults2, fl, pl })
+                                    }
+                                }
+                            )
+
                         }
                     }
                 )

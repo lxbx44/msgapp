@@ -62,6 +62,278 @@ body .content {
   transform: translate(-50%, -50%);
   border-radius: 20px;
   display: grid;
+  grid-template-rows: 30% 70%;
+  grid-template-columns: 1fr 1fr;
+}
+body .content .gohome {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+}
+body .content .gohome:hover {
+  background-color: #fafafa;
+  color: #050505;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+body .content .newFriendInput {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+body .content .newFriendInput form {
+  display: flex;
+  flex-direction: column;
+}
+body .content .newFriendInput form input {
+  height: 7vh;
+  width: 50vw;
+  border: solid 2px #b887f8;
+  border-radius: 10px;
+  padding: 0 1rem;
+  outline: none;
+  background-color: rgba(5, 5, 5, 0.8);
+  color: #fafafa;
+  font-weight: bold;
+  text-align: center;
+}
+body .content .newFriendInput form button {
+  height: 2rem;
+  width: 15vw;
+  align-self: center;
+  margin-top: 0.75rem;
+  border-radius: 20px;
+  background-color: #b887f8;
+  outline: none;
+  border: none;
+  color: #050505;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body .content .newFriendInput form button:hover {
+  scale: 1.08;
+}
+body .content .newFriendInput form button:active {
+  scale: 0.95;
+}
+body .content .newFriendInput p {
+  text-align: center;
+  width: fit-content;
+  color: #e76a6a;
+}
+body .content .newFriendInput p i {
+  position: relative;
+  top: -8px;
+  right: -2px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #e76a6a;
+}
+body .content .friendList {
+  height: calc(100% - 2.5rem);
+  width: calc(100% - 4rem);
+  background-color: rgba(5, 5, 5, 0.85);
+  border-radius: 20px;
+  margin: 2rem;
+  margin-top: 0.5rem;
+  color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 15% 85%;
+  justify-items: center;
+  align-items: center;
+}
+body .content .friendList h2 {
+  justify-self: flex-start;
+  align-self: flex-end;
+  margin-left: 2rem;
+}
+body .content .friendList .flf {
+  height: 90%;
+  max-height: 90%;
+  width: 90%;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 1rem;
+}
+body .content .friendList .flf .friends-c {
+  height: calc(100% - 1rem);
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 5rem 27.5% 27.5% calc(100% - (6rem + 65%)) 10%;
+}
+body .content .friendList .flf .friends-c p {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+}
+body .content .friendList .flf .friends-content {
+  height: calc(100% - 1rem);
+  min-height: calc(100% - 1rem);
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 5rem 27.5% 27.5% calc(100% - (6rem + 65%)) 10%;
+}
+body .content .friendList .flf .friends-content img {
+  height: 3rem;
+  border-radius: 50%;
+}
+body .content .friendList .flf .friends-content div {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: fit-content;
+  max-width: 100%;
+}
+body .content .friendList .flf .friends-content div p {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 10px;
+}
+body .content .friendList .flf .friends-content div p i {
+  font-size: small;
+  padding: 0 0.3rem;
+}
+body .content .friendList .flf .friends-content .fc-close {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 10px;
+}
+body .content .friendList .flf .friends-content .fc-close i {
+  font-size: small;
+  padding: 0 0.3rem;
+}
+body .content .friendList .flf .friends-content .fc-close:hover {
+  background-color: #e76a6a;
+  color: #050505;
+  transition: all 0.2s ease-in-out;
+}
+body .content .pendingList {
+  height: calc(100% - 2.5rem);
+  width: calc(100% - 4rem);
+  background-color: rgba(5, 5, 5, 0.85);
+  border-radius: 20px;
+  margin: 2rem;
+  margin-top: 0.5rem;
+  color: #fafafa;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 15% 85%;
+  justify-items: center;
+  align-items: center;
+}
+body .content .pendingList h2 {
+  justify-self: flex-start;
+  align-self: flex-end;
+  margin-left: 2rem;
+}
+body .content .pendingList .plf {
+  height: 90%;
+  max-height: 90%;
+  width: 90%;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 1rem;
+}
+body .content .pendingList .plf .pending-c {
+  height: calc(100% - 1rem);
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 5rem 30% calc(100% - (6rem + 60%)) 15% 15%;
+}
+body .content .pendingList .plf .pending-c p {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+}
+body .content .pendingList .plf .pending-content {
+  height: calc(100% - 1rem);
+  min-height: calc(100% - 1rem);
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 5rem 30% calc(100% - (6rem + 60%)) 15% 15%;
+}
+body .content .pendingList .plf .pending-content img {
+  height: 3rem;
+  border-radius: 50%;
+}
+body .content .pendingList .plf .pending-content div {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: fit-content;
+  max-width: 100%;
+}
+body .content .pendingList .plf .pending-content div p {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 10px;
+}
+body .content .pendingList .plf .pending-content div p i {
+  font-size: small;
+  padding: 0 0.3rem;
+}
+body .content .pendingList .plf .pending-content .pc-x {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 10px;
+}
+body .content .pendingList .plf .pending-content .pc-x i {
+  font-size: small;
+  padding: 0 0.3rem;
+}
+body .content .pendingList .plf .pending-content .pc-x:hover {
+  background-color: #e76a6a;
+  color: #050505;
+  transition: all 0.2s ease-in-out;
+}
+body .content .pendingList .plf .pending-content .pc-c {
+  font-weight: bold;
+  padding: 0.2rem 0.4rem;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 10px;
+}
+body .content .pendingList .plf .pending-content .pc-c i {
+  font-size: small;
+  padding: 0 0.3rem;
+}
+body .content .pendingList .plf .pending-content .pc-c:hover {
+  background-color: #b1ff62;
+  color: #050505;
+  transition: all 0.2s ease-in-out;
 }
 
 .light-mode {
