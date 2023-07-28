@@ -218,15 +218,26 @@ body .content .friendList .flf .friends-content .fc-close {
   padding: 0.2rem 0.4rem;
   background-color: rgba(5, 5, 5, 0.6);
   border-radius: 10px;
+  cursor: pointer;
 }
-body .content .friendList .flf .friends-content .fc-close i {
+body .content .friendList .flf .friends-content .fc-close button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+body .content .friendList .flf .friends-content .fc-close button i {
   font-size: small;
   padding: 0 0.3rem;
+  color: #fafafa;
 }
 body .content .friendList .flf .friends-content .fc-close:hover {
   background-color: #e76a6a;
-  color: #050505;
   transition: all 0.2s ease-in-out;
+}
+body .content .friendList .flf .friends-content .fc-close:hover i {
+  color: #050505;
 }
 body .content .pendingList {
   height: calc(100% - 2.5rem);
@@ -306,34 +317,56 @@ body .content .pendingList .plf .pending-content div p i {
   padding: 0 0.3rem;
 }
 body .content .pendingList .plf .pending-content .pc-x {
+  cursor: pointer;
   font-weight: bold;
   padding: 0.2rem 0.4rem;
   background-color: rgba(5, 5, 5, 0.6);
   border-radius: 10px;
 }
-body .content .pendingList .plf .pending-content .pc-x i {
+body .content .pendingList .plf .pending-content .pc-x button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+body .content .pendingList .plf .pending-content .pc-x button i {
   font-size: small;
   padding: 0 0.3rem;
+  color: #fafafa;
 }
 body .content .pendingList .plf .pending-content .pc-x:hover {
   background-color: #e76a6a;
-  color: #050505;
   transition: all 0.2s ease-in-out;
 }
+body .content .pendingList .plf .pending-content .pc-x:hover i {
+  color: #050505;
+}
 body .content .pendingList .plf .pending-content .pc-c {
+  cursor: pointer;
   font-weight: bold;
   padding: 0.2rem 0.4rem;
   background-color: rgba(5, 5, 5, 0.6);
   border-radius: 10px;
 }
-body .content .pendingList .plf .pending-content .pc-c i {
+body .content .pendingList .plf .pending-content .pc-c button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+body .content .pendingList .plf .pending-content .pc-c button i {
   font-size: small;
   padding: 0 0.3rem;
+  color: #fafafa;
 }
 body .content .pendingList .plf .pending-content .pc-c:hover {
   background-color: #b1ff62;
-  color: #050505;
   transition: all 0.2s ease-in-out;
+}
+body .content .pendingList .plf .pending-content .pc-c:hover i {
+  color: #050505;
 }
 
 .light-mode {

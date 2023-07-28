@@ -11,9 +11,11 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const appRouter = require('./routes/app');
 const friendsRouter = require('./routes/friends');
+
 const updateProfile = require('./routes/update-profile');
 const removePfp = require('./routes/remove-pfp');
 const sendFriendRequest = require('./routes/send-friend-request');
+const acceptFr = require('./routes/accept-fr');
 
 const db = require('./utils/db')
 
@@ -66,3 +68,4 @@ app.use('/friends', friendsRouter);
 app.use('/update-profile', updateProfile);
 app.use('/remove-pfp', removePfp);
 app.use('/send-friend-request', sendFriendRequest);
+app.use('/accept-fr', acceptFr);

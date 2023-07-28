@@ -223,18 +223,25 @@ body {
                        padding: 0.2rem 0.4rem;
                        background-color: rgba($color: $background, $alpha: 0.6);
                        border-radius: 10px;
+                       cursor: pointer;
 
-
-
-                       i {
-                           font-size: small;
-                           padding: 0 0.3rem;
+                                              button {
+                           height: 100%;
+                           width: 100%;
+                           border: none;
+                           outline: none;
+                           background-color: transparent;
+                           i {
+                               font-size: small;
+                               padding: 0 0.3rem;
+                               color: $text;
+                           }
                        }
                    }
 
                    .fc-close:hover {
                        background-color: #e76a6a;
-                       color: $background;
+                       i {color: $background;}
                        transition: all 0.2s ease-in-out;
                    }                   
                }
@@ -343,36 +350,56 @@ body {
                        }
                    }
                    .pc-x {
+                       cursor: pointer;
                        font-weight: bold;
                        padding: 0.2rem 0.4rem;
                        background-color: rgba($color: $background, $alpha: 0.6);
                        border-radius: 10px;
-                       i {
-                           font-size: small;
-                           padding: 0 0.3rem;
+
+                       button {
+                           height: 100%;
+                           width: 100%;
+                           border: none;
+                           outline: none;
+                           background-color: transparent;
+                           i {
+                               font-size: small;
+                               padding: 0 0.3rem;
+                               color: $text;
+                           }
                        }
                    }
 
                    .pc-x:hover {
                        background-color: #e76a6a;
-                       color: $background;
+                       i {color: $background;}
                        transition: all 0.2s ease-in-out;
                    }                   
 
                    .pc-c {
+                       cursor: pointer;
                        font-weight: bold;
                        padding: 0.2rem 0.4rem;
                        background-color: rgba($color: $background, $alpha: 0.6);
                        border-radius: 10px;
-                       i {
-                           font-size: small;
-                           padding: 0 0.3rem;
+
+                       button {
+                           height: 100%;
+                           width: 100%;
+                           border: none;
+                           outline: none;
+                           background-color: transparent;
+                           i {
+                               font-size: small;
+                               padding: 0 0.3rem;
+                               color: $text;
+                           }
                        }
                    }
 
                    .pc-c:hover {
                        background-color: #b1ff62;
-                       color: $background;
+                       i {color: $background;}
                        transition: all 0.2s ease-in-out;
                    }                   
 

@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="css/friends.css">
 
-        <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="">
 
         <title>Profile</title>
     </head>
@@ -73,7 +73,9 @@
 
                                 <div></div>
 
-                                <p class="fc-close"><i class="fa-solid fa-x"></i></p>
+                                <form id="delete-friend" action="/delete-friend" method="POST">
+                                    <p class="fc-close"><button><i class="fa-solid fa-x"></i></button></p>
+                                </form>
                             </div>
                         <% }) %>
                     </div>
@@ -86,7 +88,7 @@
                 <div class="pendingList">
                     <h2>Friend List</h2>
                     
-                    <p>You have no friends currently</p>
+                    <p>You have no friends requests</p>
                 </div>
             <% } else { %>
                 <div class="pendingList">
@@ -110,12 +112,18 @@
                                     <img src="uploads/<%= p.pfp_path %>" alt="pfp">
                                 <% }; %>
 
-                                <div><p><%= p.username %></p></div>
+                                <div><p class="username-pcc"><%= p.username %></p></div>
 
                                 <div></div>
 
-                                <p class="pc-c"><i class="fa-solid fa-check"></i></p>
-                                <p class="pc-x"><i class="fa-solid fa-x"></i></p>
+                                <form id="accept-fr" action="/accept-fr" method="POST">
+                                    <input type="hidden" name="pendingUsername" value="<%= p.username %>">
+                                    <p class="pc-c"><button type="submit"><i class="fa-solid fa-check"></i></button></p>
+                                </form>
+
+                                <form id="reject-fr" action="/reject-fr" method="POST">
+                                <p class="pc-x"><button><i class="fa-solid fa-x"></i></button></p>
+                                </form>
                             </div>
                         <% }) %>
                     </div>
