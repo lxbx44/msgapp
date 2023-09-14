@@ -16,6 +16,7 @@ const updateProfile = require('./routes/update-profile');
 const removePfp = require('./routes/remove-pfp');
 const sendFriendRequest = require('./routes/send-friend-request');
 const acceptFr = require('./routes/accept-fr');
+const rejectFr = require('./routes/reject-fr');
 
 const db = require('./utils/db')
 
@@ -69,3 +70,4 @@ app.use('/update-profile', updateProfile);
 app.use('/remove-pfp', removePfp);
 app.use('/send-friend-request', sendFriendRequest);
 app.use('/accept-fr', acceptFr);
+app.use('/reject-fr', rejectFr);

@@ -23,13 +23,22 @@ router.post('/', async (req, res) => {
 
             db.query(
                 'UPDATE friends SET status = ? WHERE (user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
-                ['accepted', currentUserID, friendUserID, friendUserID, currentUserID],
+                ['rejected', currentUserID, friendUserID, friendUserID, currentUserID],
                 (error, results) => {
                     if (error) {
                         return res.redirect('/friends');
                     }
 
-                    return res.redirect('/friends');
+                    db.query(
+                        'DELETE FROM friends WHERE (user_id = ? AND friend_id = ?) OR (user_id = ? AND friend_id = ?)',
+                        [currentUserID, friendUserID, friendUserID, currentUserID],
+                        (error, results) => {
+                            if (error) {
+                                console.error('Error deleting friend request:', error);
+                            }
+                            return res.redirect('/friends');
+                        }
+                    );
                 }
             );
         }

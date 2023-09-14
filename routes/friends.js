@@ -36,7 +36,6 @@ router.get('/', auth, (req, res) => {
                                 seen[friend.username] = true;
                                 return true;
                             });
-                            const error = req.query.error;
 
                             let fl = 0;
                             uniqueResults.forEach(()=> {
