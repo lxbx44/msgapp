@@ -73,7 +73,8 @@
 
                                 <div></div>
 
-                                <form id="delete-friend" action="/delete-friend" method="POST">
+                                <form id="delete-friend" action="/reject-fr" method="POST">
+                                    <input type="hidden" name="pendingUsername" value="<%= friend.username %>">
                                     <p class="fc-close"><button><i class="fa-solid fa-x"></i></button></p>
                                 </form>
                             </div>
@@ -86,7 +87,7 @@
 
             <% if (pl == 0) { %>
                 <div class="pendingList">
-                    <h2>Friend List</h2>
+                    <h2>Friend Request List</h2>
                     
                     <p>You have no friends requests</p>
                 </div>
@@ -122,7 +123,8 @@
                                 </form>
 
                                 <form id="reject-fr" action="/reject-fr" method="POST">
-                                <p class="pc-x"><button><i class="fa-solid fa-x"></i></button></p>
+                                    <input type="hidden" name="pendingUsername" value="<%= p.username %>">
+                                    <p class="pc-x"><button><i class="fa-solid fa-x"></i></button></p>
                                 </form>
                             </div>
                         <% }) %>

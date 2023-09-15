@@ -36,7 +36,7 @@ body {
 
 
         .l-header {
-            h1 {
+            h2 {
                 color: $text;
             }
             p {
@@ -67,6 +67,7 @@ body {
                 }
                 input {
                     background-color: $background;
+                    color: $text;
                     font-size: medium;
                     padding: 0 0.2rem;
                     width: calc(25vw - 5rem);
@@ -162,7 +163,7 @@ body {
         box-shadow: 0 0 20px 5px $background;
  
         .r-header {
-            h1 {
+            h2 {
                 color: $text;
             }
             p {
@@ -192,6 +193,7 @@ body {
                 }
                 input {
                     background-color: $background;
+                    color: $text;
                     font-size: medium;
                     padding: 0 0.2rem;
                     width: calc(25vw - 5rem);

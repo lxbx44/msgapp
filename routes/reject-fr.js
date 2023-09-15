@@ -7,6 +7,8 @@ router.post('/', async (req, res) => {
     const usrF = req.body.pendingUsername;
     const currentUserID = req.cookies.userId;
 
+    console.log(usrF, currentUserID)
+
     db.query(
         'SELECT id FROM users WHERE username = ?',
         [usrF],
