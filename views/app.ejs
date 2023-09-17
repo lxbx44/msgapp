@@ -156,6 +156,26 @@
     </div>
 
 
+    <div id="chats-popup">
+        <div><h3>Select a friend to start a chat</h3></div>
+        <div>
+            <% friends.forEach((frr) => { %>
+            <div>
+                <button>
+                    <% if (frr.pfp_path === null) { %>
+                        <img src="img/def_pfp.png" alt="pfp">
+                    <% } else { %>
+                        <img src="uploads/<%= frr.pfp_path %>" alt="pfp">
+                    <% }; %>
+
+                    <p><%= frr.username %></p>
+                </button>
+            </div>
+            <% }); %>
+        </div>
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+
     <script src="js/themeCookie.js"></script>
     <script src="js/app.js"></script>
 </body>
